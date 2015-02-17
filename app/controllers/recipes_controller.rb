@@ -1,4 +1,6 @@
 class RecipesController < ApplicationController
+  before_action :new_authentication, only:[:new, :create]
+  before_action :edit_authentication, only:[:edit, :update]
   def index
     @recipes = Recipe.all
   end
@@ -13,14 +15,14 @@ class RecipesController < ApplicationController
 
   def create
     @recipe = Recipe.new(recipe_params)
+    @recipe.user_id = current_user.id
     save_recipe
   end
 
   def edit
-    @recipe = Recipe.find(params[:id])
   end
+
   def update
-    @recipe = Recipe.find(params[:id])
     update_recipe
   end
 
@@ -39,6 +41,17 @@ private
       redirect_to @recipe
     else
       render "edit"
+    end
+  end
+  def new_authentication
+    unless admin_signed_in? || user_signed_in?
+      redirect_to root_path
+    end
+  end
+  def edit_authentication
+    @recipe = Recipe.find(params[:id])
+    unless admin_signed_in? || user_signed_in? && @recipe.user_id == current_user.id
+      redirect_to root_path
     end
   end
   def recipe_params
