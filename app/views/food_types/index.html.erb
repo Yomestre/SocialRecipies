@@ -1,0 +1,9 @@
+<h2>Todas os Tipos de comida</h2>
+
+<% @food_types.each do |food_type| %>
+  <div>
+    <ul>
+      <li>Nome da receita: <%=link_to food_type.food_type, food_type %></li>
+    </ul>
+  </div>
+<% end %>
