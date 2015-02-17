@@ -9,5 +9,6 @@
     <li>Dificuldade: <%=@recipe.difficulty_level %></li>
     <li>Ingredientes: <%=@recipe.ingredients %></li>
     <li>Instruçoes: <%=@recipe.instructions %></li>
+    <li><%= link_to "Editar", edit_recipe_path(@recipe) %></li>
   </ul>
 </div>
