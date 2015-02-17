@@ -21,7 +21,6 @@ class RecipesController < ApplicationController
 
   def destroy
   end
-  
 private
   def save_new
     if @recipe.save

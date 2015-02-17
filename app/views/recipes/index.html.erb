@@ -1,0 +1,17 @@
+<h2>Todas as Receitas</h2>
+
+<% @recipes.each do |recipe| %>
+  <div>
+    <ul>
+      <li>Nome da receita: <%=link_to recipe.name, recipe %></li>
+      <li>Cozinha: <%=recipe.cuisine %></li>
+      <li>Tipo: <%=recipe.food_type %></li>
+      <li>Preferencia De Comida: <%=recipe.food_preference %></li>
+      <li>Rendimento: <%=recipe.serving %></li>
+      <li>Tempo de preparo: <%=recipe.cooking_time %></li>
+      <li>Dificuldade: <%=recipe.difficulty_level %></li>
+      <li>Ingredientes: <%=recipe.ingredients %></li>
+      <li>Instruçoes: <%=recipe.instructions %></li>
+    </ul>
+  </div>
+<% end %>
