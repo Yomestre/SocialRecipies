@@ -1,0 +1,8 @@
+<h2>Todas as cozinhas</h2>
+<% @cuisines.each do |cuisine| %>
+  <div>
+    <ul>
+      <li>Cozinha <%=link_to cuisine.cuisine, cuisine %></li>
+    </ul>
+  </div>
+<% end %>

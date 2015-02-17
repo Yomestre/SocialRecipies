@@ -1,6 +1,7 @@
 class RecipesController < ApplicationController
   before_action :new_authentication, only:[:new, :create]
   before_action :edit_authentication, only:[:edit, :update]
+  
   def index
     @recipes = Recipe.all
   end
