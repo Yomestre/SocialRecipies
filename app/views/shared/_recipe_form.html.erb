@@ -5,15 +5,14 @@
   </div>
   <div>
     <%= r.label :cozinha %><br>
-    <%= r.text_field :cuisine %>
-  </div>
+    <%= r.collection_select :cuisine_id, Cuisine.all, :id, :cuisine %>  </div>
   <div>
     <%= r.label :tipo %><br>
-    <%= r.text_field :food_type %>
+    <%= r.collection_select :food_type_id, FoodType.all, :id, :food_type %>
   </div>
   <div>
     <%= r.label :preferencia_de_comida %><br>
-    <%= r.text_field :food_preference %>
+    <%= r.collection_select :food_preference_id, FoodPreference.all, :id ,:food_preference %>
   </div>
   <div>
     <%= r.label :rendimento %><br>
