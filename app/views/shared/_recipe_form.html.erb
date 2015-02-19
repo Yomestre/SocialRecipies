@@ -15,16 +15,16 @@
     <%= r.collection_select :food_preference_id, FoodPreference.all, :id ,:food_preference %>
   </div>
   <div>
-    <%= r.label :rendimento %><br>
+    <%= r.label :rendimento_por_pessoa %><br>
     <%= r.text_field :serving %>
   </div>
   <div>
-    <%= r.label :tempo_de_preparo %><br>
+    <%= r.label :tempo_de_preparo_em_minutos %><br>
     <%= r.text_field :cooking_time %>
   </div>
   <div>
     <%= r.label :dificuldade %><br>
-    <%= r.text_field :difficulty_level %>
+    <%= r.select :difficulty_level, ['Facil', 'Medio', 'Dificil'] %>
   </div>
   <div>
     <%= r.label :ingredientes %><br>
