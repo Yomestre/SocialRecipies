@@ -1,0 +1,25 @@
+<%= form_for @user_profile do |u| %>
+  <div>
+    <%= u.label :nome %>
+    <%= u.text_field :name %>
+  </div>
+  <div>
+    <%= u.label :cidade %>
+    <%= u.text_field :city %>
+  </div>
+  <div>
+    <%= u.label :facebook %>
+    <%= u.text_field :facebook %>
+  </div>
+  <div>
+    <%= u.label :twitter %>
+    <%= u.text_field :twitter %>
+  </div>
+  <div>
+    <%= u.label :preferencia_de_cozinha %>
+    <%= u.text_field :cuisine_preference %>
+  </div>
+  <div>
+    <%= u.submit %>
+  </div>
+<% end %>

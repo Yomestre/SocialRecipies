@@ -5,5 +5,7 @@
     <% @food_types.each do |food_type| %>
       <li>Tipo de comida: <%=link_to food_type.food_type, food_type %></li>
     <% end %>
+    <br>
+    <li><%= link_to "Criar novo Tipo de Comida", new_food_type_path %></li>
   </ul>
 </div>

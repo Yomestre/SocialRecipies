@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :cuisines
   resources :food_types
   resources :food_preferences
+  resources :user_profiles, except: [:new, :create]
   root to: 'home#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

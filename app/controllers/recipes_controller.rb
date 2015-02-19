@@ -47,8 +47,10 @@ private
     end
   end
   def new_authentication
-    unless admin_signed_in? || user_signed_in?
+    if !(admin_signed_in? || user_signed_in?)
       redirect_to root_path
+    elsif !(admin_signed_in? || current_user.user_profile.name.present? && current_user.user_profile.city.present?)
+      redirect_to edit_user_profile_path(current_user)
     end
   end
   def edit_authentication

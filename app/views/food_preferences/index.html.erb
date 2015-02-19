@@ -5,5 +5,7 @@
     <% @food_preferences.each do |food_preference| %>
       <li>Tipo de comida: <%=link_to food_preference.food_preference, food_preference %></li>
     <% end %>
+    <br>
+    <li><%= link_to "Criar nova Preferencia de Comida", new_food_preference_path %></li>
   </ul>
 </div>

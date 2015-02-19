@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150218114649) do
+ActiveRecord::Schema.define(version: 20150219162648) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -68,6 +68,20 @@ ActiveRecord::Schema.define(version: 20150218114649) do
   add_index "recipes", ["food_preference_id"], name: "index_recipes_on_food_preference_id"
   add_index "recipes", ["food_type_id"], name: "index_recipes_on_food_type_id"
   add_index "recipes", ["user_id"], name: "index_recipes_on_user_id"
+
+  create_table "user_profiles", force: :cascade do |t|
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "name"
+    t.string   "city"
+    t.string   "email"
+    t.string   "facebook"
+    t.string   "twitter"
+    t.text     "cuisine_preference"
+    t.integer  "user_id"
+  end
+
+  add_index "user_profiles", ["user_id"], name: "index_user_profiles_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

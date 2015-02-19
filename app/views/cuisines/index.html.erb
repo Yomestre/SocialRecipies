@@ -5,5 +5,7 @@
     <% @cuisines.each do |cuisine| %>
       <li>Cozinha <%=link_to cuisine.cuisine, cuisine %></li>
     <% end %>
+    <br>
+    <li><%= link_to "Criar nova Cozinha", new_cuisine_path %></li>
   </ul>
 </div>

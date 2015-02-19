@@ -1,0 +1,15 @@
+<h2>Seus dados:</h2>
+<div>
+  <ul>
+    <li>Nome: <%=@user_profile.name %></li>
+    <li>Cidade: <%=@user_profile.city %></li>
+    <li>E-mail: <%=@user_profile.email %></li>
+    <li>Facebook: <%=@user_profile.facebook %></li>
+    <li>Twitter: <%=@user_profile.twitter %></li>
+    <li>Preferencia de cozinha: <%=@user_profile.cuisine_preference %></li>
+    <li><%= link_to "Editar", edit_user_profile_path(@user_profile) %></li>
+  </ul>
+</div>
+<h3>Suas receitas:</h3>
+
+<%= render "shared/recipe_list" %>
