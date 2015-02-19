@@ -1,9 +1,9 @@
 <h2>Todas as preferencias de comida</h2>
 
-<% @food_preferences.each do |food_preference| %>
-  <div>
-    <ul>
+<div>
+  <ul>
+    <% @food_preferences.each do |food_preference| %>
       <li>Tipo de comida: <%=link_to food_preference.food_preference, food_preference %></li>
-    </ul>
-  </div>
-<% end %>
+    <% end %>
+  </ul>
+</div>

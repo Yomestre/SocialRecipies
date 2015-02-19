@@ -1,9 +1,9 @@
 <h2>Todos os Tipos de comida</h2>
 
-<% @food_types.each do |food_type| %>
-  <div>
-    <ul>
+<div>
+  <ul>
+    <% @food_types.each do |food_type| %>
       <li>Tipo de comida: <%=link_to food_type.food_type, food_type %></li>
-    </ul>
-  </div>
-<% end %>
+    <% end %>
+  </ul>
+</div>
