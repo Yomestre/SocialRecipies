@@ -1,5 +1,9 @@
 <h1>Home<h1>
-  
 <h2>Ultimas receitas</h2>
 
 <%= render "shared/recipe_list" %>
+
+<h3>Categorias:</h3>
+<%= link_to "Todas as cozinhas", cuisines_path%><br>
+<%= link_to "Todos os tipos de comida", food_types_path%><br>
+<%= link_to "Todos as preferencias de comida", food_preferences_path%>
