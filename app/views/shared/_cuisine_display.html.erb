@@ -2,5 +2,6 @@
   <ul>
     <li>Cozinha: <%=link_to @cuisine.cuisine, @cuisine %></li>
     <li><%= link_to "Editar", edit_cuisine_path(@cuisine) %></li>
+    <li><%= link_to "Deletar", @cuisine, :method => :delete %></li>
   </ul>
 </div>

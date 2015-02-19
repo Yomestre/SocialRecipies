@@ -27,6 +27,10 @@ class FoodTypesController < ApplicationController
     @food_type = FoodType.find(params[:id])
     update_food_type
   end
+  def destroy
+    FoodType.find(params[:id]).destroy
+    redirect_to root_path
+  end
 private
   def save_food_type
     if @food_type.save

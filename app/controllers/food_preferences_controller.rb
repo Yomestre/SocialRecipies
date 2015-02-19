@@ -27,6 +27,10 @@ class FoodPreferencesController < ApplicationController
     @food_preference = FoodPreference.find(params[:id])
     update_food_preference
   end
+  def destroy
+    FoodPreference.find(params[:id]).destroy
+    redirect_to root_path
+  end
 
 private
   def save_food_preference

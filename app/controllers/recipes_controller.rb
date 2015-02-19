@@ -1,6 +1,6 @@
 class RecipesController < ApplicationController
   before_action :new_authentication, only:[:new, :create]
-  before_action :edit_authentication, only:[:edit, :update]
+  before_action :edit_authentication, only:[:edit, :update, :destroy]
   
   def index
     @recipes = Recipe.all
@@ -28,6 +28,8 @@ class RecipesController < ApplicationController
   end
 
   def destroy
+    @recipe.destroy
+    redirect_to root_path
   end
 private
   def save_recipe

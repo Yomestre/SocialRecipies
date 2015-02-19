@@ -27,6 +27,10 @@ class CuisinesController < ApplicationController
     @cuisine = Cuisine.find(params[:id])
     update_cuisine
   end
+  def destroy
+    Cuisine.find(params[:id]).destroy
+    redirect_to root_path
+  end
 
 private
   def save_cuisine
@@ -43,6 +47,7 @@ private
       render "edit"
     end
   end
+
   def cuisine_params
     params.require(:cuisine).permit(:cuisine)
   end

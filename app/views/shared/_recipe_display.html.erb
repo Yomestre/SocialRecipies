@@ -10,5 +10,6 @@
     <li>Ingredientes: <%=@recipe.ingredients %></li>
     <li>Instruçoes: <%=@recipe.instructions %></li>
     <li><%= link_to "Editar", edit_recipe_path(@recipe) %></li>
+    <li><%= link_to "Deletar", @recipe , :method => :delete %></li>
   </ul>
 </div>

@@ -2,5 +2,6 @@
   <ul>
     <li>Tipo de comida: <%=link_to @food_type.food_type, @food_type %></li>
     <li><%= link_to "Editar", edit_food_type_path(@food_type) %></li>
+    <li><%= link_to "Deletar", @food_type, :method => :delete %></li>
   </ul>
 </div>
