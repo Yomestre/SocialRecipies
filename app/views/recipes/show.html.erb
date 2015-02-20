@@ -1,3 +1,3 @@
 <h2>Receita</h2>
 
-<%= render "shared/recipe_display"%>
+<%= render partial:"shared/recipe_display", locals: {recipe: @recipe, show_options: true }%>

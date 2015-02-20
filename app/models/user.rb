@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   has_one :user_profile
   has_many :recipes
+  has_many :favorites
   after_create :build_profile
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
