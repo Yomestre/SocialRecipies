@@ -7,6 +7,7 @@ class FavoritesController < ApplicationController
   end
   def destroy
     @favorite = Favorite.all.where("user_id == :first AND recipe_id == :last",{first: current_user.id, last: Recipe.find(params[:id])})
-    @favorite.destroy
+    @favorite.destroy_all
+    redirect_to recipes_path
   end
 end
