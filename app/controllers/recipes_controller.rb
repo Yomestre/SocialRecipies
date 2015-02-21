@@ -1,6 +1,7 @@
 class RecipesController < ApplicationController
   before_action :new_authentication, only:[:new, :create]
   before_action :edit_authentication, only:[:edit, :update, :destroy]
+  before_action :send_recipe_verifications , only:[:send_recipe]
   
   def index
     @recipes = Recipe.all
@@ -34,7 +35,8 @@ class RecipesController < ApplicationController
 
   def send_recipe
     @destiny = params[:destiny_email]
-    UserMailer.send_email(@destiny).deliver
+    @recipe =  params[:recipe_link]
+    UserMailer.send_email(@destiny, @username, @recipe).deliver
     redirect_to recipes_path
   end
 
@@ -68,5 +70,8 @@ private
   end
   def recipe_params
     params.require(:recipe).permit(:name, :cuisine_name, :food_type_name, :food_preference_name, :serving, :cooking_time, :difficulty_level, :ingredients, :instructions, :cuisine_id, :food_preference_id, :food_type_id)
+  end
+  def send_recipe_verifications
+    @username = current_user.user_profile.name
   end
 end

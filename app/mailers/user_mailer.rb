@@ -1,8 +1,9 @@
 class UserMailer < ApplicationMailer
   default from: "SocialRecipesGustavo@gmail.com"
-  def send_email(destiny)
+  def send_email(destiny, username, recipe_link)
     @destiny = destiny
-    @user = current_user
-    mail(to: destiny.email, subject: 'Recipe')
+    @username = username
+    @recipe = recipe_link
+    mail(to: destiny, subject: 'Recipe')
   end
 end

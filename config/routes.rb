@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :admins
   devise_for :users
-  post "recipes/send_recipe" => "recipes#send_recipe"
+  post "/recipes/send_recipe" => "recipes#send_recipe"
   resources :recipes
   resources :cuisines
   resources :food_types
