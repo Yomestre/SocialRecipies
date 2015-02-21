@@ -43,7 +43,6 @@ Rails.application.configure do
   :address              => "smtp.gmail.com",
   :port                 => 587,
   :user_name            => 'SocialRecipesGustavo',
-  :password             => 'social123456789recipes',
   :authentication       => 'plain',
   :enable_starttls_auto => true  }
 end
