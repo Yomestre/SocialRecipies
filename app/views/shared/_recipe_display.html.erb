@@ -18,6 +18,13 @@
     <li><%= link_to "Editar", edit_recipe_path(recipe) %></li>
     <li><%= link_to "Deletar", recipe , :method => :delete %></li>
     <% end %>
+    <h3>Compartilhar Receita: </h3>
+    <form action="/recipes">
+        Email do Destinatario:<br>
+        <input type="text" name="destiny_email" value="">
+        <br><br>
+        <input type="submit" value="Submit">
+    </form>
     <h3><%= link_to "Voltar a lista de receitas", recipes_path%></h3>
   </ul>
 </div>

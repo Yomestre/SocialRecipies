@@ -31,6 +31,13 @@ class RecipesController < ApplicationController
     @recipe.destroy
     redirect_to root_path
   end
+
+  def send_recipe
+    @destiny = params[:destiny_email]
+    UserMailer.send_email(@destiny).deliver
+    redirect_to recipes_path
+  end
+
 private
   def save_recipe
     if @recipe.save
