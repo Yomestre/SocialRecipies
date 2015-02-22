@@ -8,7 +8,10 @@
       <li>Rendimento: <%=recipe.serving %> pessoas</li>
       <li>Tempo de preparo: <%=recipe.cooking_time %> minutos</li>
       <li>Dificuldade: <%=recipe.difficulty_level %></li>
-      <li>Ingredientes: <%=recipe.ingredients %></li>
+      <li>Ingredientes:</li> <% recipe.ingredients.split("\r\n").each do |ingredient|%>
+        <%= ingredient %> <br>
+        <% end %>
+      
       <li>Instruçoes: <%=recipe.instructions %></li>
     </ul>
   </div>

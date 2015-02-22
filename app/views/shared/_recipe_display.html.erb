@@ -7,8 +7,13 @@
     <li>Rendimento: <%=recipe.serving %> pessoas</li>
     <li>Tempo de preparo: <%=recipe.cooking_time %> minutos</li>
     <li>Dificuldade: <%=recipe.difficulty_level %></li>
-    <li>Ingredientes: <%=recipe.ingredients %></li>
-    <li>Instruçoes: <%=recipe.instructions %></li>
+      <li>Ingredientes:</li> <% recipe.ingredients.split("\r\n").each do |ingredient|%>
+        <%= ingredient %> <br>
+        <% end %>
+      <li>Instruçoes:</li><% recipe.intructions.split("\r\n").each do |instruction|%>
+        <%= instruction %> <br>
+        <% end %>
+
     <% if show_options && (user_signed_in? || admin_signed_in?)%>
     <% unless recipe.favorites.where("user_id == ?",current_user).any? %>
     <li><%= link_to "Salvar como favorita", favorites_path(recipe_id: Recipe.find(params[:id]).id) , method: :post %></li>
