@@ -69,7 +69,7 @@ private
     end
   end
   def recipe_params
-    params.require(:recipe).permit(:name, :cuisine_name, :food_type_name, :food_preference_name, :serving, :cooking_time, :difficulty_level, :ingredients, :instructions, :cuisine_id, :food_preference_id, :food_type_id)
+    params.require(:recipe).permit(:name, :cuisine_name, :food_type_name, :food_preference_name, :serving, :cooking_time, :difficulty_level, :ingredients, :instructions, :cuisine_id, :food_preference_id, :food_type_id, :image)
   end
   def send_recipe_verifications
     @username = current_user.user_profile.name

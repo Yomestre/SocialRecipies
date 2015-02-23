@@ -1,25 +1,39 @@
-<h1>Home<h1>
-<h2>Receitas mais favoritadas</h2>
+<div class="row">
+  <div class ="col-md-6">
+    <h2>Ultimas receitas</h2>
+    <% @recipes.each do |recipe| %>
+      <div class="row">
+        <div class="col-md-6">
+        <%= image_tag recipe.image.url %>
+        </div>
+        <ul>
+          <div class "col-md-6">
+            <li>Nome da receita: <%=link_to recipe.name, recipe %></li>
+            <li>Cozinha: <%=link_to recipe.cuisine.cuisine, recipe.cuisine %></li>
+            <li>Tipo: <%=link_to recipe.food_type.food_type, recipe.food_type %></li>
+            <li>Dificuldade: <%=recipe.difficulty_level %></li>
+          </div>
+        </ul>
+      </div>
+      <br>
+    <% end %>
+  <br>
+  </div>
+  <h2>Receitas mais favoritadas</h2>
   <% @favorited_recipes.each do |recipe| %>
     <div>
+      <div class="col-md-3">
+      <%= image_tag recipe.image.url %>
+      </div>
       <ul>
-        <li>Nome da receita: <%=link_to recipe.name, recipe %></li>
-        <li>Cozinha: <%=link_to recipe.cuisine.cuisine, recipe.cuisine %></li>
-        <li>Tipo: <%=link_to recipe.food_type.food_type, recipe.food_type %></li>
-        <li>Preferencia De Comida: <%=link_to recipe.food_preference.food_preference, recipe.food_preference %></li>
-        <li>Rendimento: <%=recipe.serving %> pessoas</li>
-        <li>Tempo de preparo: <%=recipe.cooking_time %> minutos</li>
-        <li>Dificuldade: <%=recipe.difficulty_level %></li>
-        <li>Ingredientes: <%=recipe.ingredients %></li>
-        <li>Instruçoes: <%=recipe.instructions %></li>
+        <div class "col-md-3">
+          <li>Nome da receita: <%=link_to recipe.name, recipe %></li>
+          <li>Cozinha: <%=link_to recipe.cuisine.cuisine, recipe.cuisine %></li>
+          <li>Tipo: <%=link_to recipe.food_type.food_type, recipe.food_type %></li>
+          <li>Dificuldade: <%=recipe.difficulty_level %></li>
+        </div>
       </ul>
     </div>
+    <br>
   <% end %>
-  <h2>Ultimas receitas</h2>
-
-<%= render "shared/recipe_list" %>
-
-<h3>Categorias:</h3>
-<%= link_to "Todas as cozinhas", cuisines_path%><br>
-<%= link_to "Todos os tipos de comida", food_types_path%><br>
-<%= link_to "Todos as preferencias de comida", food_preferences_path%>
+</div>

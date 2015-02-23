@@ -5,23 +5,58 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+    <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 </head>
 <body>
-  <div>
-    <% unless user_signed_in? %>
-      <%= button_to "Login User", new_user_session_path %>
-    <% else %>
-      <%= button_to "Logout User", destroy_user_session_path, :method => :delete  %>
-    <% end %>
-  </div>
-
-<%= yield %>
-  <div>
-    <% unless admin_signed_in? %>
-    <%= button_to "Login Admin", new_admin_session_path %>
-    <% else %>
-    <%= button_to "Logout", destroy_admin_session_path, :method => :delete  %>
-    <% end %>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <span class="navbar-brand">Social Recipes</span>
+      </div>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li><%= link_to "Inicio", root_path%>
+          <li><%= link_to "Minhas receitas", user_profiles_path%></li>
+          <li><%= link_to "Criar nova receita", new_recipe_path %></li>
+          <% unless user_signed_in? %>
+            <li><%= link_to "Login User", new_user_session_path %></li>
+          <% else %>
+            <li><%= link_to "Logout User", destroy_user_session_path, :method => :delete  %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="container">
+    <div class="row" >
+      <div class="col-sm-12 col-md-2">
+        <p>Cozinha : <% @cuisine_list.each do |cuisine| %>
+          <br><%=link_to cuisine.cuisine, cuisine %>
+        <% end %></p>
+        <p>Preferencia : <% @food_preference_list.each do |food_preference| %>
+          <br><%=link_to food_preference.food_preference, food_preference %>
+        <% end %></p>
+        <p>Tipo : <% @food_type_list.each do |food_type| %>
+          <br><%=link_to food_type.food_type, food_type %>
+        <% end %></p>
+      </div><div class="col-sm-12 col-md-10">
+          <%= yield %>
+        <div>
+          <% unless admin_signed_in? %>
+          <%= button_to "Login Admin", new_admin_session_path %>
+          <% else %>
+          <%= button_to "Logout", destroy_admin_session_path, :method => :delete  %>
+          <% end %>
+        </div>
+      </div>
+    </div>
   </div>
 
 </body>
